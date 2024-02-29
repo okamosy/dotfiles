@@ -1,15 +1,15 @@
-  #!/usr/bin/env bash
-  set -euxo pipefail
+#!/usr/bin/env bash
+set -euxo pipefail
 
-sudo apt update
+sudo -E add-apt-repository ppa:git-core/ppa -y
 sudo apt upgrade -y
 
 sudo apt install -y \
-    build-essential \
-    stow \
-    zsh
+  build-essential \
+  stow \
+  zsh
 
-stow -D ~/dotfiles
+stow -d ~/dotfiles --ignore=setup.sh .
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
@@ -17,15 +17,19 @@ chsh -s $(which zsh)
 
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.zshrc
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+/home/linuxbrew/.linuxbrew/bin/brew install \
+  cilium-cli \
+  fzf \
+  gcc \
+  helm \
+  hubble \
+  jq \
+  just \
+  k9s \
+  kubectl \
+  kubectx \
+  zoxide
 
-brew install \
-    cilium-cli \
-    gcc \
-    helm \
-    hubble \
-    jq \
-    just \
-    k9s \
-    kubectl
+compinit
+
+$(/home/linuxbrew/.linuxbrew/bin/brew --prefix)/opt/fzf/install
