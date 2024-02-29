@@ -21,7 +21,7 @@ chsh -s $(which zsh)
 
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-/home/linuxbrew/.linuxbrew/bin/brew install \
+NONINTERACTIVE=1 /home/linuxbrew/.linuxbrew/bin/brew install \
   cilium-cli \
   fzf \
   gcc \
