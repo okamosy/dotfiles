@@ -102,4 +102,7 @@ source $ZSH/oh-my-zsh.sh
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-eval "$(zoxide init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+
+fpath=(/usr/local/share/zsh-completions $fpath)
+rm -f "$HOME/.zcompdump"; compinit
