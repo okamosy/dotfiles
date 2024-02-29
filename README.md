@@ -55,5 +55,5 @@ It does the following:
 1. Run the setup script
 
    ```bash
-   ~/.dotfiles/setup.sh
+   ~/dotfiles/setup.sh
    ```
