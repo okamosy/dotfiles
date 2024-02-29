@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 set -euxo pipefail
 
+# Ensure date is correct
+sudo hwclock -s
+
 sudo -E add-apt-repository ppa:git-core/ppa -y
+sudo apt update
 sudo apt upgrade -y
 
 sudo apt install -y \
@@ -29,7 +33,5 @@ NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Ho
   kubectl \
   kubectx \
   zoxide
-
-compinit
 
 $(/home/linuxbrew/.linuxbrew/bin/brew --prefix)/opt/fzf/install
