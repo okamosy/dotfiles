@@ -22,7 +22,6 @@ NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Ho
 NONINTERACTIVE=1 /home/linuxbrew/.linuxbrew/bin/brew install \
   cilium-cli \
   fzf \
-  gcc \
   helm \
   hubble \
   jq \
