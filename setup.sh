@@ -13,8 +13,6 @@ sudo apt install -y \
   stow \
   zsh
 
-stow -d ~/dotfiles --ignore=setup.sh .
-
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 chsh -s $(which zsh)
@@ -34,4 +32,7 @@ NONINTERACTIVE=1 /home/linuxbrew/.linuxbrew/bin/brew install \
   kubectx \
   zoxide
 
-$(/home/linuxbrew/.linuxbrew/bin/brew --prefix)/opt/fzf/install
+$(/home/linuxbrew/.linuxbrew/bin/brew --prefix)/opt/fzf/install --all
+
+mv ~/.zshrc ~/.zshrc.bak
+stow -d ~/dotfiles --ignore=setup.sh .
